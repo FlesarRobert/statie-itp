@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITP IERNUT | Inspecție Tehnică Periodică Auto</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- External Files -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                blue: "#1e40af",
+                dark: "#0f172a",
+                light: "#f8fafc",
+                accent: "#f59e0b",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-brand-light text-slate-800">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-md"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center min-h-[5rem] py-2">
+          <div
+            class="flex-shrink-0 flex items-center cursor-pointer"
+            onclick="window.scrollTo(0, 0)"
+          >
+            <div
+              class="bg-brand-blue text-white font-black text-xl p-2 rounded mr-2"
+            >
+              ITP
+            </div>
+            <span class="font-extrabold text-2xl text-brand-dark tracking-tight"
+              >IERNUT</span
+            >
+          </div>
+
+          <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+            <a
+              href="#home"
+              class="text-slate-600 hover:text-brand-blue font-semibold transition-colors"
+              >Acasă</a
+            >
+            <a
+              href="#servicii"
+              class="text-slate-600 hover:text-brand-blue font-semibold transition-colors"
+              >Servicii</a
+            >
+            <a
+              href="#recenzii"
+              class="text-slate-600 hover:text-brand-blue font-semibold transition-colors"
+              >Recenzii</a
+            >
+            <a
+              href="#contact"
+              class="text-slate-600 hover:text-brand-blue font-semibold transition-colors"
+              >Contact</a
+            >
+            <a
+              href="tel:+40745764687"
+              onclick="handleCallClick(event)"
+              class="bg-brand-blue text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-800 transition-all shadow hover:shadow-lg"
+            >
+              <i class="fas fa-phone-alt mr-2"></i> Apelează
+            </a>
+          </div>
+
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden text-slate-700 p-2"
+            aria-label="Menu"
+          >
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="menu-overlay"
+      class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[55] opacity-0 md:hidden"
+    ></div>
+    <div
+      id="mobile-menu"
+      class="fixed inset-y-0 right-0 w-[85%] sm:w-80 bg-white z-[60] flex flex-col shadow-2xl md:hidden"
+    >
+      <div class="p-6 border-b flex justify-between items-center">
+        <span class="font-black text-brand-blue text-xl">MENU</span>
+        <button id="close-menu-btn" class="text-slate-500">
+          <i class="fas fa-times text-3xl"></i>
+        </button>
+      </div>
+      <div class="flex flex-col p-8 overflow-y-auto">
+        <a
+          href="#home"
+          class="mobile-link text-2xl font-bold py-4 border-b text-slate-800"
+          >Acasă</a
+        >
+        <a
+          href="#servicii"
+          class="mobile-link text-2xl font-bold py-4 border-b text-slate-800"
+          >Servicii</a
+        >
+        <a
+          href="#recenzii"
+          class="mobile-link text-2xl font-bold py-4 border-b text-slate-800"
+          >Recenzii</a
+        >
+        <a
+          href="#contact"
+          class="mobile-link text-2xl font-bold py-4 border-b text-slate-800"
+          >Contact</a
+        >
+      </div>
+      <div class="mt-auto p-8">
+        <a
+          href="tel:+40745764687"
+          onclick="handleCallClick(event)"
+          class="block w-full bg-brand-blue text-white text-center py-5 rounded-xl font-bold text-xl shadow-lg"
+        >
+          <i class="fas fa-phone-alt mr-2"></i> Sună Acum
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header
+      id="home"
+      class="relative min-h-screen flex items-center justify-center hero-bg text-white pt-24 pb-16 px-4 clip-slant"
+    >
+      <div class="max-w-5xl mx-auto text-center z-10">
+        <div
+          class="inline-block py-2 px-4 rounded-full bg-brand-accent/20 border border-brand-accent/50 text-brand-accent font-bold mb-8 animate-pulse"
+        >
+          STAȚIE AUTORIZATĂ RAR
+        </div>
+        <h1
+          class="text-4xl sm:text-5xl md:text-7xl font-black leading-[1.1] mb-8 tracking-tight"
+        >
+          ITP IERNUT <br />
+          <span class="text-brand-accent">Profesionalism în Mișcare</span>
+        </h1>
+        <p
+          class="text-lg md:text-2xl text-slate-200 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
+        >
+          Suntem dedicați siguranței tale. Oferim inspecții ITP rapide și
+          complete pentru o gamă largă de vehicule.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a
+            href="tel:+40745764687"
+            onclick="handleCallClick(event)"
+            class="bg-brand-accent text-brand-dark px-10 py-5 rounded-xl font-black text-xl hover:scale-105 transition-transform shadow-xl flex items-center justify-center"
+          >
+            <i class="fas fa-phone-alt mr-3"></i> Apelează 0745 764 687
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="servicii" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+          <h2
+            class="text-brand-blue font-black uppercase tracking-widest text-sm mb-4"
+          >
+            Tarife și Categorii
+          </h2>
+          <h3 class="text-4xl md:text-5xl font-black text-brand-dark">
+            Servicii ITP
+          </h3>
+          <div class="w-24 h-2 bg-brand-accent mx-auto mt-6 rounded-full"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Autoturism -->
+          <div
+            class="bg-slate-50 p-10 rounded-3xl border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden"
+          >
+            <div
+              class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-car"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 text-brand-dark">Autoturisme</h4>
+            <p class="text-slate-600 text-lg">
+              Inspecție tehnică pentru autoturisme standard.
+            </p>
+          </div>
+
+          <!-- Autoutilitare / Mixte -->
+          <div
+            class="bg-slate-50 p-10 rounded-3xl border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden"
+          >
+            <div
+              class="w-16 h-16 bg-brand-accent text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg shadow-orange-200 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-truck-pickup"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 text-brand-dark">
+              Utilitare & Mixte
+            </h4>
+            <p class="text-slate-600 text-lg">
+              Autoutilitară, autorulotă, mixte, specializate.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm font-semibold text-slate-500">
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i>Până la 3.5t
+              </li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i>Peste 3.5t
+              </li>
+            </ul>
+          </div>
+
+          <!-- Remorci -->
+          <div
+            class="bg-slate-50 p-10 rounded-3xl border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden"
+          >
+            <div
+              class="w-16 h-16 bg-slate-800 text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg shadow-slate-200 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-trailer"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 text-brand-dark">
+              Remorci & Rulote
+            </h4>
+            <p class="text-slate-600 text-lg">
+              Remorcă, semiremorcă, rulotă (cu/fără sistem frânare).
+            </p>
+            <ul class="mt-4 space-y-2 text-sm font-semibold text-slate-500">
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i>Fără frânare /
+                Agricolă
+              </li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i>Cu frânare (până
+                la/peste 3.5t)
+              </li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i>Axe în tandem
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tractoare -->
+          <div
+            class="bg-slate-50 p-10 rounded-3xl border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden"
+          >
+            <div
+              class="w-16 h-16 bg-green-600 text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg shadow-green-200 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-tractor"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 text-brand-dark">Tractoare</h4>
+            <p class="text-slate-600 text-lg">
+              Inspecție ITP pentru tractoare rutiere.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm font-semibold text-slate-500">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Sub 3.5t</li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i>Peste 3.5t
+              </li>
+            </ul>
+          </div>
+
+          <!-- MAL -->
+          <div
+            class="bg-slate-50 p-10 rounded-3xl border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden"
+          >
+            <div
+              class="w-16 h-16 bg-yellow-600 text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg shadow-yellow-200 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-shuttle-van"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 text-brand-dark">
+              Mașini Autopropulsate (MAL)
+            </h4>
+            <p class="text-slate-600 text-lg">
+              Inspecție tehnică pentru utilaje autopropulsate lucrare.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm font-semibold text-slate-500">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Sub 3.5t</li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i>Peste 3.5t
+              </li>
+            </ul>
+          </div>
+
+          <!-- Autobuz / Microbuz -->
+          <div
+            class="bg-slate-50 p-10 rounded-3xl border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden"
+          >
+            <div
+              class="w-16 h-16 bg-red-600 text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg shadow-red-200 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-bus"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 text-brand-dark">
+              Autobuz & Microbuz
+            </h4>
+            <p class="text-slate-600 text-lg">
+              Inspecție pentru vehicule de transport persoane.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="recenzii" class="py-24 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="text-brand-blue font-black uppercase tracking-widest text-sm mb-4"
+          >
+            Părerea Clienților
+          </h2>
+          <h3 class="text-4xl md:text-5xl font-black text-brand-dark">
+            Recenzii Recente
+          </h3>
+          <div class="w-24 h-2 bg-brand-accent mx-auto mt-6 rounded-full"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:translate-y-[-5px] transition-all"
+          >
+            <div class="flex text-brand-accent mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 italic mb-6">"Amabilitate, Rapiditate"</p>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center text-brand-blue font-bold"
+              >
+                N
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-slate-900">Nelu Pop</h4>
+                <p class="text-xs text-slate-400">Acum 2 ani</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:translate-y-[-5px] transition-all"
+          >
+            <div class="flex text-brand-accent mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 italic mb-6">
+              "Totul s-a desfășurat fără probleme, se respectată programările"
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center text-brand-blue font-bold"
+              >
+                C
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-slate-900">Coman Natalia</h4>
+                <p class="text-xs text-slate-400">Acum 2 ani</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:translate-y-[-5px] transition-all"
+          >
+            <div class="flex text-brand-accent mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 italic mb-6">
+              "Am fost programat pentru ITP. S-a respectat ora, a vorbit frumos
+              cu noi, este curat și civilizat. Felicitări persoanei care
+              deservește acest punct."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center text-brand-blue font-bold"
+              >
+                V
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-slate-900">Vasila Trifan</h4>
+                <p class="text-xs text-slate-400">Acum un an</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div class="space-y-12">
+            <div>
+              <h3 class="text-4xl font-black text-brand-dark mb-6">
+                Unde ne găsești?
+              </h3>
+              <p class="text-xl text-slate-600 leading-relaxed">
+                Suntem situați în Iernut, chiar pe drumul principal (DN15).
+              </p>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="flex items-center p-6 bg-slate-50 rounded-2xl border border-slate-100"
+              >
+                <i
+                  class="fas fa-map-marker-alt text-3xl text-brand-accent mr-6"
+                ></i>
+                <div>
+                  <h4 class="font-black text-slate-900">Adresă</h4>
+                  <p class="text-slate-600 font-medium">
+                    Strada Energeticii nr. 1A, 545100 Iernut
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-center p-6 bg-slate-50 rounded-2xl border border-slate-100"
+              >
+                <i class="fas fa-phone-alt text-3xl text-brand-blue mr-6"></i>
+                <div>
+                  <h4 class="font-black text-slate-900">Telefon</h4>
+                  <a
+                    href="tel:+40745764687"
+                    onclick="handleCallClick(event)"
+                    class="text-brand-blue font-black text-xl hover:underline"
+                    >0745 764 687</a
+                  >
+                </div>
+              </div>
+              <div
+                class="flex items-center p-6 bg-slate-50 rounded-2xl border border-slate-100"
+              >
+                <i class="fas fa-clock text-3xl text-slate-400 mr-6"></i>
+                <div>
+                  <h4 class="font-black text-slate-900">Program de Lucru</h4>
+                  <p class="text-slate-600 font-medium">
+                    Luni - Vineri: 08:00 - 17:00
+                  </p>
+                  <p class="text-slate-600 font-medium">
+                    Sâmbătă - Duminică: Închis
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-full h-[450px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2745.263884394025!2d24.188024176919137!3d46.46170606640081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474bdd1155a2bf63%3A0x9b6978fbbde60f2f!2sITP%20IERNUT!5e0!3m2!1sro!2sro!4v1715870000000!5m2!1sro!2sro"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="bg-brand-dark py-12 text-center border-t border-slate-800 px-4 text-slate-500 font-medium"
+    >
+      &copy; 2026 ITP IERNUT - Stație Autorizată RAR.
+    </footer>
+
+    <!-- Floating Widget -->
+    <a
+      href="https://wa.me/40745764687?text=Buna%20ziua,%20as%20dori%20o%20programare%20ITP."
+      class="whatsapp-float"
+      aria-label="WhatsApp"
+    >
+      <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Local Script Link -->
+    <script src="script.js"></script>
+  </body>
+</html>

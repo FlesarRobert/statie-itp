@@ -1,0 +1,68 @@
+/* Base Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Hero Section Background */
+.hero-bg {
+  background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+    url("images/statie-itp.jpeg");
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: no-repeat;
+  
+}
+
+/* Aesthetic Slanted Bottom for Hero */
+.clip-slant {
+  clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
+}
+
+/* Mobile Menu Transitions */
+#mobile-menu {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(100%);
+}
+
+#mobile-menu.open {
+  transform: translateX(0);
+}
+
+#menu-overlay {
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+#menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Custom Nav Transition on Scroll */
+#navbar.scrolled {
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
